@@ -2,6 +2,13 @@ from utils import discover, scanner
 import os
 import sys
 
+__author__ = "Tobias Trabelsi"
+__copyright__ = "GPLv3"
+__version__ = "1.0"
+__maintainer__ = "Tobias Trabelsi"
+__email__ = "Tobias.Trabelsi@HS-Bochum.de"
+__status__ = "Testing"
+
 if __name__ == '__main__':
     euid = os.geteuid()
     if euid != 0:
