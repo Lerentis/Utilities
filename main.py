@@ -1,4 +1,4 @@
-from utils import discover, scanner
+from utils import discover, scanner, ssh
 import os
 import sys
 
@@ -21,3 +21,4 @@ if __name__ == '__main__':
     for host in hostlist:
         scanner.scanhost(host[0], '0-1000')
     print(scanner.getMacForHost('192.168.0.1'))
+    ssh.connectToHost("192.168.0.211")
