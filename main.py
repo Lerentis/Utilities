@@ -1,4 +1,4 @@
-from utils import discover, scanner, ssh
+from utils import discover, scanner, ssh, traceroute
 import os
 import sys
 
@@ -14,7 +14,6 @@ if __name__ == '__main__':
     if euid != 0:
         print ("Script not started as root. Running sudo..")
         args = ['sudo', sys.executable] + sys.argv + [os.environ]
-        # the next line replaces the currently-running process with the sudo
         os.execlpe('sudo', *args)
 
     hostlist = discover.discoverNetwork('192.168.0.1/24')
@@ -22,3 +21,4 @@ if __name__ == '__main__':
         scanner.scanhost(host[0], '0-1000')
     print(scanner.getMacForHost('192.168.0.1'))
     ssh.connectToHost("192.168.0.211")
+    traceroute.routeToHost("www.google.de")

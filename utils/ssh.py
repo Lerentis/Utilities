@@ -3,7 +3,6 @@ import socket
 import sys
 import traceback
 from paramiko.py3compat import input
-
 import paramiko
 try:
     import interactive

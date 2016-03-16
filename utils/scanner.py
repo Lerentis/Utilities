@@ -43,7 +43,6 @@ def getMacForHost(host):
         if euid != 0:
             print ("Script not started as root. Running sudo..")
             args = ['sudo', sys.executable] + sys.argv + [os.environ]
-            # the next line replaces the currently-running process with the sudo
             os.execlpe('sudo', *args)
 
         scanner = nmap.PortScanner();
