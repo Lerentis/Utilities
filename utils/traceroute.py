@@ -19,4 +19,4 @@ def routeToHost(host):
             print("Done!", reply.src)
             break
         else:
-            print ("%d hops away: " % i, reply.src)
+            print("%d hops away: " % i, reply.src)

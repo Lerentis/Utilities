@@ -19,11 +19,9 @@ def scanhost (ip, range):
             print('----------------------------------------------------')
             print('Host : {0} ({1})'.format(host, scanner[host].hostname()))
             print('State : {0}'.format(scanner[host].state()))
-
             for proto in scanner[host].all_protocols():
                 print('----------')
                 print('Protocol : {0}'.format(proto))
-
                 lport = list(scanner[host][proto].keys())
                 lport.sort()
                 for port in lport:
@@ -45,7 +43,7 @@ def getMacForHost(host):
             args = ['sudo', sys.executable] + sys.argv + [os.environ]
             os.execlpe('sudo', *args)
 
-        scanner = nmap.PortScanner();
+        scanner = nmap.PortScanner()
         print('scanning ' + host)
         scanner.scan(host, arguments='-O')
         for h in scanner.all_hosts():

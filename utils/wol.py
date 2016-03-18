@@ -1,4 +1,5 @@
 from wakeonlan import wol
+import sys
 
 __author__ = "Tobias Trabelsi"
 __copyright__ = "GPLv3"
@@ -9,4 +10,8 @@ __status__ = "Testing"
 
 
 def wakeHost(hostMacAddresse):
-    wol.send_magic_packet(hostMacAddresse)
+    try:
+        wol.send_magic_packet(hostMacAddresse)
+    except:
+        print("No Connection to host or no MAC Addresse receaved")
+        print(sys.exc_info()[0])

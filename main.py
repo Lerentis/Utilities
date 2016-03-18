@@ -1,4 +1,4 @@
-from utils import discover, scanner, ssh, traceroute
+from utils import discover, scanner, ssh, traceroute, wol
 import os
 import sys
 
@@ -16,9 +16,9 @@ if __name__ == '__main__':
         args = ['sudo', sys.executable] + sys.argv + [os.environ]
         os.execlpe('sudo', *args)
 
-    hostlist = discover.discoverNetwork('192.168.0.1/24')
+    hostlist = discover.discoverNetwork('192.168.1.1/24')
     for host in hostlist:
         scanner.scanhost(host[0], '0-1000')
-    print(scanner.getMacForHost('192.168.0.1'))
-    ssh.connectToHost("192.168.0.211")
-    traceroute.routeToHost("www.google.de")
+    wol.wakeHost(scanner.getMacForHost('192.168.1.1'))
+    ssh.connectToHost("PoolPC0.local")
+    traceroute.routeToHost("PoolPC0.local")
